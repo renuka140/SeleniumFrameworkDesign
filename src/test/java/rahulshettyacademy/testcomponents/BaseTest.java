@@ -2,6 +2,8 @@ package rahulshettyacademy.testcomponents;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -64,6 +66,15 @@ public class BaseTest {
         });
         return data;
     }
+
+    public String getScreenshot(String testCaseName,WebDriver driver) throws IOException {
+        TakesScreenshot ts=(TakesScreenshot) driver;
+        File source=ts.getScreenshotAs(OutputType.FILE);
+        File file=new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png");
+        FileUtils.copyFile(source, file);
+        return System.getProperty("user.dir")+"//reports//"+testCaseName+".png";
+    }
+
     @BeforeMethod(alwaysRun = true)
     public LandingPage launchApplication() throws IOException
     {

@@ -53,3 +53,4 @@ public class ProductCatalogue extends AbstractComponent {
 
 
 
+
