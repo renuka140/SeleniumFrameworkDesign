@@ -5,7 +5,7 @@
     <listeners>
             <listener class-name="rahulshettyacademy.testcomponents.Listeners"/>
     </listeners>
-    <test thread-count="5" name="Submit Order Test">
+    <test thread-count="1" name="Submit Order Test">
     <classes>
             <class name="rahulshettyacademy.tests.SubmitOrderTest">
                 <methods>
@@ -15,7 +15,7 @@
         </classes>
     </test>
 
-    <test thread-count="5" name="Error Validations Test">
+    <test thread-count="1" name="Error Validations Test">
         <classes>
             <class name="rahulshettyacademy.tests.ErrorValidationsTest">
                 <methods>

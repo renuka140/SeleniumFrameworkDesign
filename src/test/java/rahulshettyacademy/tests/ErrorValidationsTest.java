@@ -3,12 +3,15 @@ package rahulshettyacademy.tests;
 import org.apache.hc.core5.util.Asserts;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.IRetryAnalyzer;
 import org.testng.annotations.Test;
 import rahulshettyacademy.pageobjects.CartPage;
 import rahulshettyacademy.pageobjects.CheckoutPage;
 import rahulshettyacademy.pageobjects.ConfirmationPage;
 import rahulshettyacademy.pageobjects.ProductCatalogue;
 import rahulshettyacademy.testcomponents.BaseTest;
+import rahulshettyacademy.testcomponents.Retry;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -34,7 +37,7 @@ public class ErrorValidationsTest extends BaseTest {
      * @throws IOException if test data cannot be read
      * @throws InterruptedException if thread is interrupted during wait operations
      */
-    @Test(groups = {"ErrorHandling"})
+    @Test(groups = {"ErrorHandling"}, retryAnalyzer= Retry.class)
     public void LoginErrorValidation() throws IOException, InterruptedException {
         // Attempt login with incorrect credentials
         landingPage.loginApplication("renukreddy47@gmail.com", "Rn#ti$123451");
@@ -53,7 +56,7 @@ public class ErrorValidationsTest extends BaseTest {
      * @throws IOException if test data cannot be read
      * @throws InterruptedException if thread is interrupted during wait operations
      */
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void ProductErrorValidation() throws IOException, InterruptedException {
         String productName = "ZARA COAT 3";
 
