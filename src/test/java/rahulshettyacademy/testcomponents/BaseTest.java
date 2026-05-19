@@ -139,10 +139,10 @@ public class BaseTest {
         File source = ts.getScreenshotAs(OutputType.FILE);
 
         // Save to reports folder with test case name
-        File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+        File file = new File(System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png");
         FileUtils.copyFile(source, file);
 
-        return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+        return System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
     }
 
     /**

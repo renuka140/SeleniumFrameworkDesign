@@ -87,13 +87,14 @@ public class SubmitOrderTest extends BaseTest {
      * @return absolute path to the saved screenshot
      * @throws IOException if file operations fail
      */
-    public String getScreenshot(String testCaseName) throws IOException {
-        TakesScreenshot ts = (TakesScreenshot) driver;
-        File source = ts.getScreenshotAs(OutputType.FILE);
-        File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
-        FileUtils.copyFile(source, file);
-        return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
-    }
+//    public String getScreenshot(String testCaseName) throws IOException {
+//        TakesScreenshot ts = (TakesScreenshot) driver;
+//        File source = ts.getScreenshotAs(OutputType.FILE);
+//        File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+//        System.out.println("file path "+file);
+//        FileUtils.copyFile(source, file);
+//        return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+//    }
 
     /**
      * DataProvider that reads test data from PurchaseOrder.json and
