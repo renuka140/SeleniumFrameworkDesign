@@ -3,9 +3,11 @@
     <groupId>rahulshettyacademy</groupId>
     <artifactId>TestSeleniumFrameworkDesign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <name>TestSeleniumFrameworkDesign</name>
     <!--  FIXME change it to the project's website  -->
-    <url>http://www.example.com</url>
+    <url>https://rahulshettyacademy.com/client</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -19,6 +21,7 @@
             <version>4.43.0</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -26,6 +29,7 @@
             <version>7.12.0</version>
             <scope>test</scope>
         </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
@@ -33,6 +37,7 @@
             <version>5.1.2</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
         <dependency>
             <groupId>tools.jackson.core</groupId>
@@ -40,6 +45,7 @@
             <version>3.1.3</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -47,65 +53,115 @@
             <version>5.8.0</version>
         </dependency>
 
-
     </dependencies>
-<!-- added testng jar file from the location https://www.toolsqa.com/testng/install-testng/#:~:text=Go%20to%20the%20dependencies%20tab,your%20TestNG%20installed%20in%20IntelliJ. -->
 
     <build>
-    <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M6</version>
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>testSuites/testng.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                    </configuration>
-                </plugin>
-                <!--  clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle  -->
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <!--  default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging  -->
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.22.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.5.2</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.8.2</version>
-                </plugin>
-                <!--  site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle  -->
-                <plugin>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.7.1</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-
-
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <!--  clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle  -->
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.1.0</version>
+            </plugin>
+            <!--  default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging  -->
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+            <!--  site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle  -->
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.7.1</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>3.0.0</version>
+            </plugin>
+        </plugins>
     </build>
+
+    <!-- added testng jar file from the location https://www.toolsqa.com/testng/install-testng/#:~:text=Go%20to%20the%20dependencies%20tab,your%20TestNG%20installed%20in%20IntelliJ. -->
+<profiles>
+        <profile>
+            <id>Regression</id>
+            <build>
+            <pluginManagement>
+            <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.5</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/testSuites/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            </plugins>
+            </pluginManagement>
+            </build>
+    </profile>
+
+    <profile>
+        <id>Purchase</id>
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.5.5</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/testSuites/purchase.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+
+    </profile>
+    <profile>
+        <id>ErrorValidation</id>
+        <build>
+            <pluginManagement>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.5.5</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>src/testSuites/ErrorValidationsTests.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </pluginManagement>
+        </build>
+
+    </profile>
+    </profiles>
+
+
 </project>
